@@ -100,15 +100,28 @@ index a0d47b3..1c541df 100644
  seccomp-filter.bpf seccomp-filter.pfc seccomp-filter-exec.bpf seccomp-filter-exec.pfc: seccomp-filter$(EXEEXT)
  	$(AM_V_GEN)./seccomp-filter$(EXEEXT) \
 diff --git a/lib-src/make-fingerprint.c b/lib-src/make-fingerprint.c
-index dcd2ccc..c8cbb2c 100644
+index dcd2ccc..7fdc2ee 100644
 --- a/lib-src/make-fingerprint.c
 +++ b/lib-src/make-fingerprint.c
-@@ -101,6 +101,7 @@ main (int argc, char **argv)
+@@ -44,6 +44,10 @@ along with GNU Emacs.  If not, see <https://www.gnu.org/licenses/>.  */
+ #include <min-max.h>
+ #include <sha256.h>
+
++#ifdef __MVS__
++#include <zos.h>
++#endif
++
+ #ifndef SSIZE_MAX
+ # define SSIZE_MAX TYPE_MAXIMUM (ssize_t)
+ #endif
+@@ -101,6 +105,9 @@ main (int argc, char **argv)
        perror (file);
        return EXIT_FAILURE;
      }
++  #ifdef __MVS__
 +  __disableautocvt(fileno(f));
- 
++#endif
+
    if (!S_ISREG (st.st_mode))
      {
 diff --git a/src/dynlib.c b/src/dynlib.c

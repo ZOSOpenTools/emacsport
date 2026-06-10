@@ -1,5 +1,5 @@
 # bump: emacs-version /EMACS_VERSION="(.*)"/ https://ftp.gnu.org/gnu/emacs/|re:/href="emacs-([\d.]+).tar.gz"/$1/|semver:*
-EMACS_VERSION="29.4"
+EMACS_VERSION="30.2"
 export ZOPEN_BUILD_LINE='STABLE'
 export ZOPEN_STABLE_URL="https://ftp.gnu.org/gnu/emacs/emacs-${EMACS_VERSION}.tar.gz"
 export ZOPEN_CATEGORIES="editor"

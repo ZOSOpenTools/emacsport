@@ -1,3 +1,5 @@
+[![CodeQL](https://github.com/zopencommunity/emacsport/actions/workflows/codeql.yml/badge.svg)](https://github.com/zopencommunity/emacsport/actions/workflows/codeql.yml)
+
 [![Automatic version updates](https://github.com/ZOSOpenTools/emacsport/actions/workflows/bump.yml/badge.svg)](https://github.com/ZOSOpenTools/emacsport/actions/workflows/bump.yml)
 
 # Emacs
